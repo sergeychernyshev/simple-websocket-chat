@@ -24,7 +24,7 @@ export default {
 	 */
 	async fetch(request, env, ctx): Promise<Response> {
 		const url = new URL(request.url);
-		console.log(url);
+		console.log("Page requested:", url);
 
 		const doId: DurableObjectId = env.MY_DURABLE_OBJECT.idFromName("do");
 		const myDO = env.MY_DURABLE_OBJECT.get(doId);
@@ -33,8 +33,10 @@ export default {
 		if (url.pathname === '/writeMessage') {
 			const message = url.searchParams.get('message');
 
+      console.log(`Writing message: ${message}`);
+
 			if (message) {
-				myDO.writeMessage(message);
+				await myDO.writeMessage(message);
 			}
 
 			return new Response("Message recieved");
