@@ -4,7 +4,7 @@
  */
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "personal-do-worker",
+  "name": "simple-websocket-chat",
   "main": "src/index.ts",
   "compatibility_date": "2025-03-03",
   "account_id": "724e55bcae2b4d037e3e85b1a4716da1", // Sergey's Personal Account
@@ -34,7 +34,7 @@
   },
   "env": {
     "stage": {
-      "name": "personal-do-worker-stage",
+      "name": "simple-websocket-chat-stage",
       "durable_objects": {
         "bindings": [
           {
